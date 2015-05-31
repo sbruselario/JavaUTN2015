@@ -17,6 +17,8 @@ public class Main {
 			opcion = s.nextLine();
 			
 			
+			//omito el ingreso de datos por teclado 
+			
 			if (opcion.equalsIgnoreCase("e")){
 				//lo agrego como empleado
 				Persona per = new Empleado();
