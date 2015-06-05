@@ -27,6 +27,7 @@ import negocio.Controlador;
 import entidades.Persona;
 
 import java.awt.ScrollPane;
+import javax.swing.UIManager;
 
 public class Interfaz extends JFrame {
 
