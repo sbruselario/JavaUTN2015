@@ -153,7 +153,7 @@ public class Interfaz extends JFrame {
 	
 	protected void Guardar() {
 		controla.agregarPersona(Integer.parseInt(dnif.getText()), nombref.getText(), apellidof.getText(), emailf.getText());
-		JOptionPane.showMessageDialog(null, "Persona agregada.");
+		JOptionPane.showMessageDialog(null, "Datos recibidos.");
 	}
 	
 	

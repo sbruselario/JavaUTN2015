@@ -9,7 +9,11 @@ public class Controlador {
 	static CatPersonas catp = new CatPersonas();
 	
 	public void agregarPersona(int dni, String nombre, String apellido, String email){
-		CatPersonas.agregarPersona(dni, nombre, apellido, email);
+		if (this.buscarPersona(dni) == null){
+			catp.agregarPersona(dni, nombre, apellido, email);
+		}else{
+			catp.actualizarPersona(dni, nombre, apellido, email);
+		}
 	}
 	
 	public boolean quitarPersona(int dni){

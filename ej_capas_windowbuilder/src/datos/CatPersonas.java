@@ -8,14 +8,24 @@ public class CatPersonas {
 
 	//ArrayList donde voy a guardar las personas
 	 public static ArrayList<Persona> personas = new ArrayList<Persona>();
-          
+          	 
 	 
-	 
-     public static void agregarPersona(int dni,String nombre, String apellido, String email){
+     public void agregarPersona(int dni,String nombre, String apellido, String email){
     	Persona per = new Persona(dni, nombre, apellido, email);
  		personas.add(per);
      }
           
+     public void actualizarPersona(int dni,String nombre, String apellido, String email){
+    	 for (Persona persona : personas) {
+     		if (persona.getDni() == dni){
+  				persona.setApellido(apellido);
+  				persona.setEmail(email);
+  				persona.setNombre(nombre);
+  				break;
+  			}
+ 		}
+     }
+     
      public boolean quitarPersona(int dni){
     	for (Persona persona : personas) {
     		if (persona.getDni() == dni){
