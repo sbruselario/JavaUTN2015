@@ -1,0 +1,17 @@
+19/06/15
+-Crear db 
+db llamada java
+tabla personas con id autoincremental, dni, nombre, apellido, email
+crear usuario de app con permisos sobre la db
+export/dump de la db
+
+26/06/15
+-Crear app
+una clase persona como en el abm
+crear 2 objetos persona con datos e insertarlos en la tabla y recuperar el id y asignarlo
+hacer un select a la tabla personas y guardar datos es un array list de personas
+ingresar un dni y recuperar los datos
+
+
+
+https://www.connectionstrings.com/
