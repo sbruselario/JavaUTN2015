@@ -191,7 +191,11 @@ public class Ventana extends JFrame {
 
 
 	public void agregarPersona() throws ClassNotFoundException, SQLException{
-		txtId.setText(controlador.agregarPersona(txtDni.getText(), txtNombre.getText(), txtApellido.getText(), txtEmail.getText()));
+		String id;
+		id=controlador.agregarPersona(txtDni.getText(), txtNombre.getText(), txtApellido.getText(), txtEmail.getText());
+		if (id != null) {
+			txtId.setText(id);
+		} 
 	}
 
 
