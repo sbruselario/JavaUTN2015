@@ -15,15 +15,13 @@ public class Controlador {
 
 
 	public String agregarPersona(String dni, String nombre, String apellido, String email) throws ClassNotFoundException, SQLException {
+		if (catp.buscarPersona(dni) == null) {
+			return catp.addPersona(null, dni, nombre, apellido, email);
+		} else {
 
-		//primero ingreso la nueva persona en la db
-		basedatos.add(dni, nombre, apellido, email);
-		//le pido a la db que me devuelva el id 
-		String id = basedatos.getId(dni);
-		//lo agrego al arraylist local
-		catp.addPersona(id, dni, nombre, apellido, email);
-		//retorno el id
-		return id;
+			catp.updatePersona(catp.buscarPersona(dni), nombre, apellido, email);
+		}
+		return null;
 
 	}
 
@@ -39,6 +37,11 @@ public class Controlador {
 		for (Persona p: listado) {
 			catp.addPersona(p);			
 		}
+	}
+
+
+	public void delPersona(String dni) {
+		catp.eliminarPersona(dni);		
 	}
 
 

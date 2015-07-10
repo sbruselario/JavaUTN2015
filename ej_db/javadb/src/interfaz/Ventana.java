@@ -172,6 +172,16 @@ public class Ventana extends JFrame {
 		});
 		btnCargarDesdeServidor.setBounds(181, 277, 187, 23);
 		contentPane.add(btnCargarDesdeServidor);
+
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				eliminar();
+			}
+		});
+		btnEliminar.setBounds(80, 203, 91, 23);
+		contentPane.add(btnEliminar);
 		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtDni, txtNombre, txtApellido, txtEmail, btnGuardar}));
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{txtDni, txtNombre, txtApellido, txtEmail, btnGuardar}));
 	}
@@ -203,5 +213,13 @@ public class Ventana extends JFrame {
 		controlador.getAll();
 	}
 
+	public void eliminar(){
+		controlador.delPersona(txtDni.getText());
+		txtId.setText("");
+		txtDni.setText("");
+		txtNombre.setText("");
+		txtApellido.setText("");
+		txtEmail.setText("");
 
+	}
 }
