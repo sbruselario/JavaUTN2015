@@ -52,5 +52,9 @@ public class Persona {
 		setEmail(email);
 	}
 
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

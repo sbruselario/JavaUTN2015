@@ -71,7 +71,7 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		setTitle("Conexi\u00F3n con MySql");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 440, 356);
+		setBounds(100, 100, 434, 306);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -151,27 +151,9 @@ public class Ventana extends JFrame {
 
 		txtId = new JTextField();
 		txtId.setEditable(false);
-		txtId.setBounds(124, 45, 46, 20);
+		txtId.setBounds(124, 45, 148, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
-
-		JButton btnCargarDesdeServidor = new JButton("Descargar datos desde servidor");
-		btnCargarDesdeServidor.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				try {
-					updateFromDB();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-		btnCargarDesdeServidor.setBounds(181, 277, 187, 23);
-		contentPane.add(btnCargarDesdeServidor);
 
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addMouseListener(new MouseAdapter() {
@@ -191,8 +173,16 @@ public class Ventana extends JFrame {
 
 
 	public void agregarPersona() throws ClassNotFoundException, SQLException{
+
+		Persona per = new Persona();
+
+		per.setDni(txtDni.getText());
+		per.setNombre(txtNombre.getText());
+		per.setApellido(txtApellido.getText());
+		per.setEmail(txtEmail.getText());
+
 		String id;
-		id=controlador.agregarPersona(txtDni.getText(), txtNombre.getText(), txtApellido.getText(), txtEmail.getText());
+		id = controlador.agregarPersona(per);
 		if (id != null) {
 			txtId.setText(id);
 		} 
@@ -208,22 +198,23 @@ public class Ventana extends JFrame {
 			txtApellido.setText(per.getApellido());
 			txtEmail.setText(per.getEmail());
 		} else {
-			txtId.setText("NULL!");
+			limpiarForm();
+			txtId.setText("--NO EXISTE --");
 		};
 	}	
 
 
-	public void updateFromDB() throws ClassNotFoundException, SQLException{
-		controlador.getAll();
-	}
 
 	public void eliminar(){
 		controlador.delPersona(txtDni.getText());
+		limpiarForm();
+	}
+	
+	public void limpiarForm (){
 		txtId.setText("");
-		txtDni.setText("");
+		//txtDni.setText("");
 		txtNombre.setText("");
 		txtApellido.setText("");
 		txtEmail.setText("");
-
 	}
 }

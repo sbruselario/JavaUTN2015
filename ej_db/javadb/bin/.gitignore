@@ -1,6 +1,5 @@
-/interfaz/
-/db/
-/entidades/
 /datos/
+/db/
 /negocio/
-/org/
+/interfaz/
+/entidades/

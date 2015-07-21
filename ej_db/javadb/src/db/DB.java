@@ -8,59 +8,11 @@ import entidades.Persona;
 public class DB {
 
 
-
-
-	//para agregar una persona a la db
-	public String add(String dni, String nombre, String apellido, String email) throws ClassNotFoundException, SQLException{
-
-		Persona per;
+	//para agregar una persona a la db 
+	public String addPersona(Persona per) throws ClassNotFoundException, SQLException{
 
 		ResultSet rs=null;
 		PreparedStatement stmt=null;
-
-
-		try {
-			stmt = FactoryConexion.getInstancia().getConexion().prepareStatement(
-					"insert into personas(dni, nombre, apellido, email) values (?,?,?,?)",PreparedStatement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, dni);
-			stmt.setString(2, nombre);
-			stmt.setString(3, apellido);
-			stmt.setString(4, email);
-			stmt.execute();
-
-			rs=stmt.getGeneratedKeys();
-
-			if(rs!=null && rs.next()){
-				return (rs.getString(1));
-
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally{
-
-			try {
-				if(rs!=null ) rs.close();
-				if(stmt != null) stmt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			FactoryConexion.getInstancia().releaseConexion();
-		}
-
-		return null;
-
-	}
-
-	public String add(Persona per) throws ClassNotFoundException, SQLException{
-
-		ResultSet rs=null;
-		PreparedStatement stmt=null;
-
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConexion().prepareStatement(
@@ -75,7 +27,6 @@ public class DB {
 
 			if(rs!=null && rs.next()){
 				return (rs.getString(1));
-
 			}
 
 		} catch (SQLException e) {
@@ -96,12 +47,11 @@ public class DB {
 		}
 
 		return null;
-
 	}
 
 
-
-	public void update(Persona nPer){
+	//para actualizar los datos de una persona 
+	public void updatePersona(Persona nPer){
 		Persona per = this.buscarDni(nPer.getDni());
 		per.setNombre(nPer.getNombre());
 		per.setApellido(nPer.getApellido());
@@ -130,18 +80,19 @@ public class DB {
 	}
 
 
-	public void borrar(Persona nPer){
+	//para borrar una persona 
+	public void borrarPersona(String dni){
 
 		PreparedStatement stmt=null;
 
 		try {
 			stmt = FactoryConexion.getInstancia().getConexion().prepareStatement(
 					"delete from personas where dni = ? ;");
-			stmt.setString(1, nPer.getDni());
+			stmt.setString(1, dni);
 			stmt.execute();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		finally{
@@ -152,7 +103,7 @@ public class DB {
 	}
 
 
-
+	//para buscar una persona por dni 
 	public Persona buscarDni(String dni){
 		ResultSet rs=null;
 		PreparedStatement stmt=null;
@@ -224,7 +175,6 @@ public class DB {
 		}
 
 		return listado;
-
 	}
 
 
