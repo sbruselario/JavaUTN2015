@@ -3,7 +3,7 @@ package entidades;
 public abstract class Trebejo {
 
 	private String id;
-	private String color;
+	private char color;
 	private Posicion posicion; 
 	private boolean eliminado;
 
@@ -15,11 +15,11 @@ public abstract class Trebejo {
 		this.id = id;
 	}
 
-	public String getColor() {
+	public char getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(char color) {
 		this.color = color;
 	}
 
