@@ -4,7 +4,7 @@ public abstract class Dama extends Trebejo {
 
 	private static char nombre = 'd';
 
-	public boolean isMovimientoValido (Posicion posicion, Trebejo trebejo){
+	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
 
 		if(trebejo.getColor() == this.getColor()) {
 			return false;

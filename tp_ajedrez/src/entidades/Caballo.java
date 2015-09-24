@@ -8,7 +8,7 @@ public abstract class Caballo extends Trebejo {
 		return nombre;
 	}
 
-	public boolean isMovimientoValido(Posicion posicion, Trebejo trebejo){
+	public boolean movimientoValido(Posicion posicion, Trebejo trebejo){
 		if(trebejo.getColor() == this.getColor()) {
 			return false;
 		}else{
