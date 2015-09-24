@@ -3,7 +3,7 @@ package entidades;
 public abstract class Rey extends Trebejo {
 
 	private static char nombre = 'r';
-	
+
 	public static char getNombre() {
 		return nombre;
 	}
@@ -32,5 +32,5 @@ public abstract class Rey extends Trebejo {
 			}
 		}
 	}
-	
+
 }

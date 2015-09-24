@@ -4,7 +4,7 @@ public class Jugador {
 	private String dni;
 	private String nombre;
 	private String apellido;
-	
+
 	public String getDni() {
 		return dni;
 	}

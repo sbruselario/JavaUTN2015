@@ -7,8 +7,8 @@ public class Partida {
 	private Jugador jugador2;
 	private int turno;
 	private Trebejo[] trebejos = new Trebejo[32];
-	
-	
+
+
 	public int getIdPartida() {
 		return idPartida;
 	}
@@ -39,8 +39,8 @@ public class Partida {
 	public void setTrebejos(Trebejo[] trebejos) {
 		this.trebejos = trebejos;
 	}
-	
-	
-	
-	
+
+
+
+
 }
