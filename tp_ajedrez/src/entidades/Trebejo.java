@@ -32,11 +32,11 @@ public abstract class Trebejo {
 	}
 
 	public boolean isEliminada() {
-		return eliminada;
+		return eliminado;
 	}
 
-	public void setEliminada(boolean eliminada) {
-		this.eliminada = eliminada;
+	public void setEliminada(boolean eliminado) {
+		this.eliminado = eliminado;
 	}
 	
 	
