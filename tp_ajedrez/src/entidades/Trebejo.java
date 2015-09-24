@@ -1,12 +1,12 @@
 package entidades;
 
 public abstract class Trebejo {
-	
+
 	private String id;
 	private String color;
 	private Posicion posicion; 
 	private boolean eliminado;
-		
+
 	public String getId() {
 		return id;
 	}
@@ -38,6 +38,10 @@ public abstract class Trebejo {
 	public void setEliminada(boolean eliminado) {
 		this.eliminado = eliminado;
 	}
-	
-	
+
+	public abstract boolean movimientoValido(Posicion destino, Trebejo pieza);
+
+	public void mover(Posicion pos){
+		this.posicion = pos;
+	}
 }
