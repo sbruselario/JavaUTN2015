@@ -31,11 +31,11 @@ public abstract class Trebejo {
 		this.posicion = posicion;
 	}
 
-	public boolean isEliminada() {
+	public boolean isEliminado() {
 		return eliminado;
 	}
 
-	public void setEliminada(boolean eliminado) {
+	public void setEliminado(boolean eliminado) {
 		this.eliminado = eliminado;
 	}
 
