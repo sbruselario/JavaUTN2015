@@ -27,7 +27,8 @@ public abstract class Dama extends Trebejo {
 				return true;
 
 				//diagonal
-			}else if(this.getPosicion().getLetra() == posicion.getLetra()){
+			}else if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - posicion.getLetra())){
 				return true;
 
 			}else{ 
