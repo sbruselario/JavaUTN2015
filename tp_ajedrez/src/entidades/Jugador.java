@@ -24,4 +24,11 @@ public class Jugador {
 		this.apellido = apellido;
 	}
 
+	public Jugador(String dni, String nombre, String apellido) {
+		this.setDni(dni);
+		this.setNombre(nombre);
+		this.setApellido(apellido);
+	}
+
+
 }
