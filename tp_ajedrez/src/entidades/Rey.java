@@ -1,9 +1,14 @@
 package entidades;
 
-public abstract class Rey extends Trebejo {
+public class Rey extends Trebejo {
 
 	private static char nombre = 'r';
 
+	public Rey(String id, char color, Posicion posicion, boolean eliminado) {
+		super( id,  color,  posicion,  eliminado);
+	}
+	
+	
 	public static char getNombre() {
 		return nombre;
 	}

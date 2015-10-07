@@ -7,6 +7,16 @@ public abstract class Trebejo {
 	private Posicion posicion; 
 	private boolean eliminado;
 
+	public Trebejo(String id, char color, Posicion posicion, boolean eliminado) {
+		this.setId(id); 
+		this.setColor(color);
+		this.setPosicion(posicion);
+		this.setEliminado(eliminado);
+	}
+	
+	
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -44,4 +54,10 @@ public abstract class Trebejo {
 	public void mover(Posicion pos){
 		this.posicion = pos;
 	}
+	
+	
+
+
+	
+	
 }

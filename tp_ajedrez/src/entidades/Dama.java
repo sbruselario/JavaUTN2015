@@ -1,9 +1,13 @@
 package entidades;
 
-public abstract class Dama extends Trebejo {
+public class Dama extends Trebejo {
 
 	private static char nombre = 'd';
 
+	public Dama(String id, char color, Posicion posicion, boolean eliminado) {
+		super( id,  color,  posicion,  eliminado);
+	}
+	
 	public static char getNombre() {
 		return nombre;
 	}

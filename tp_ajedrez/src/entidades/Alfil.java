@@ -1,9 +1,13 @@
 package entidades;
 
-public abstract class Alfil extends Trebejo {
+public class Alfil extends Trebejo {
 
 	private static char nombre = 'a';
 
+	public Alfil(String id, char color, Posicion posicion, boolean eliminado) {
+		super( id,  color,  posicion,  eliminado);
+	}
+	
 	public static char getNombre() {
 		return nombre;
 	}

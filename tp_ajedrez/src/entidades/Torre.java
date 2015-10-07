@@ -1,9 +1,13 @@
 package entidades;
 
-public abstract class Torre extends Trebejo {
+public class Torre extends Trebejo {
 
 	private static char nombre = 't';
 
+	public Torre(String id, char color, Posicion posicion, boolean eliminado) {
+		super( id,  color,  posicion,  eliminado);
+	}
+	
 	public static char getNombre() {
 		return nombre;
 	}
