@@ -7,7 +7,7 @@ public class Caballo extends Trebejo {
 	public Caballo(String id, char color, Posicion posicion, boolean eliminado) {
 		super( id,  color,  posicion,  eliminado);
 	}
-	
+
 	public static char getNombre() {
 		return nombre;
 	}

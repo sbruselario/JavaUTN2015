@@ -13,10 +13,10 @@ public abstract class Trebejo {
 		this.setPosicion(posicion);
 		this.setEliminado(eliminado);
 	}
-	
-	
-	
-	
+
+
+
+
 	public String getId() {
 		return id;
 	}
@@ -54,10 +54,10 @@ public abstract class Trebejo {
 	public void mover(Posicion pos){
 		this.posicion = pos;
 	}
-	
-	
 
 
-	
-	
+
+
+
+
 }

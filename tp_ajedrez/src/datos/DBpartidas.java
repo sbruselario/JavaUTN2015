@@ -2,12 +2,11 @@ package datos;
 
 import entidades.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBpartidas {
 
 	//int idpartida  string dnij1  string dnij2 char color1  char color2
-
-	//falta buscarPartidapendiente
 
 	public static Trebejo[] getTrebejos(int idpartida){
 		Trebejo[] trebejos= new Trebejo[32];
@@ -58,6 +57,38 @@ public class DBpartidas {
 		}
 		FactoryConexion.getInstancia().releaseConexion();		
 	}
+
+
+	public static ArrayList<Partida> buscarPartidas(int dni1, int dni2){
+		Connection conexion;
+		ArrayList<Partida> partidas = new ArrayList<Partida>();
+		String sql = "select idPartida, turno from partidas where (dniJ1 = ? and dniJ2 = ? ) or (dniJ2 = ? and dniJ1 = ? );";
+
+		try {
+			conexion = FactoryConexion.getInstancia().getConexion(); 
+			PreparedStatement com = conexion.prepareStatement(sql);
+			com.setInt(1, dni1);
+			com.setInt(2, dni2);
+			com.setInt(3, dni1);
+			com.setInt(4, dni2);
+			ResultSet rs= com.executeQuery();
+			while(rs.next()){
+				Partida p = new Partida();
+				p.setIdPartida(rs.getInt("idPartida"));
+				p.setTurno(rs.getString("turno").toCharArray()[0]);
+				partidas.add(p);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		FactoryConexion.getInstancia().releaseConexion();
+		return partidas;
+	}
+
+
 
 
 }

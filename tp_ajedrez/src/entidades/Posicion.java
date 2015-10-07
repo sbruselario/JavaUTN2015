@@ -17,7 +17,7 @@ public class Posicion {
 	public void setLetra(char letra) {
 		this.letra = letra;
 	}
-	
+
 	public  Posicion (char letra, int numero){
 		this.setLetra(letra);
 		this.setNumero(numero);

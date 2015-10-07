@@ -3,7 +3,7 @@ package entidades;
 public class Peon extends Trebejo {
 
 	private static char nombre = 'p';
-	
+
 	public Peon(String id, char color, Posicion posicion, boolean eliminado) {
 		super( id,  color,  posicion,  eliminado);
 	}

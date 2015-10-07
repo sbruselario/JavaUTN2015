@@ -70,7 +70,7 @@ public class DBjugadores {
 
 
 	//para buscar un jugador por dni 
-	public Jugador buscarDni(String dni){
+	public static Jugador buscarDni(String dni){
 		ResultSet rs=null;
 		PreparedStatement stmt=null;
 		Jugador jugador=null;
