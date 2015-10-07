@@ -59,7 +59,7 @@ public class DBpartidas {
 	}
 
 
-	public static ArrayList<Partida> buscarPartidas(int dni1, int dni2){
+	public static ArrayList<Partida> buscarPartidas(String dni1, String dni2){
 		Connection conexion;
 		ArrayList<Partida> partidas = new ArrayList<Partida>();
 		String sql = "select idPartida, turno from partidas where (dniJ1 = ? and dniJ2 = ? ) or (dniJ2 = ? and dniJ1 = ? );";
@@ -67,10 +67,10 @@ public class DBpartidas {
 		try {
 			conexion = FactoryConexion.getInstancia().getConexion(); 
 			PreparedStatement com = conexion.prepareStatement(sql);
-			com.setInt(1, dni1);
-			com.setInt(2, dni2);
-			com.setInt(3, dni1);
-			com.setInt(4, dni2);
+			com.setString(1, dni1);
+			com.setString(2, dni2);
+			com.setString(3, dni1);
+			com.setString(4, dni2);
 			ResultSet rs= com.executeQuery();
 			while(rs.next()){
 				Partida p = new Partida();

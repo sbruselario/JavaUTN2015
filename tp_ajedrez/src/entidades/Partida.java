@@ -5,7 +5,7 @@ public class Partida {
 	private int idPartida;
 	private Jugador jugador1;
 	private Jugador jugador2;
-	private int turno;
+	private char turno;
 	private Trebejo[] trebejos = new Trebejo[32];
 
 
@@ -27,10 +27,10 @@ public class Partida {
 	public void setJugador2(Jugador jugador2) {
 		this.jugador2 = jugador2;
 	}
-	public int getTurno() {
+	public char getTurno() {
 		return turno;
 	}
-	public void setTurno(int turno) {
+	public void setTurno(char turno) {
 		this.turno = turno;
 	}
 	public Trebejo[] getTrebejos() {
