@@ -23,4 +23,22 @@ public class Posicion {
 		this.setNumero(numero);
 	}
 
+
+	public boolean equals(Posicion posicion){
+		return (this.getLetra() == posicion.getLetra()) && (this.getNumero() == posicion.getNumero());
+	}
+
+	public boolean dentroTablero(){
+		if((this.letra >= 'a')&&(this.letra <= 'h')){
+			if((this.numero >= 1)&&(this.numero <= 8)){
+				return true;
+			}else{ 
+				return false;
+			}
+		}else{ 
+			return false;
+		}	 
+	}
+
+
 }

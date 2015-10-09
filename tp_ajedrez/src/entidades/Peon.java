@@ -19,7 +19,7 @@ public class Peon extends Trebejo {
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
 
 		boolean retorno = false;
-		
+
 		if(trebejo != null){ 							
 			if(trebejo.getColor() != this.getColor()){ 	
 				if((this.getColor() == 'b') && (trebejo.getColor() == 'n')){

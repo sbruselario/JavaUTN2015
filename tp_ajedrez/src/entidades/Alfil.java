@@ -22,7 +22,7 @@ public class Alfil extends Trebejo {
 		if(trebejo != null){
 			if(trebejo.getColor() != (this.getColor()) ){
 				retorno=(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()));
+						Math.abs(this.getPosicion().getLetra() - posicion.getLetra()));
 			}
 		}
 		else{

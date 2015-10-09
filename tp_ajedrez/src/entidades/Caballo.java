@@ -21,10 +21,10 @@ public class Caballo extends Trebejo {
 		if(trebejo != null){
 			if(trebejo.getColor() != this.getColor()){
 				if((Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==2)&&
-					(Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1))
+						(Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1))
 					retorno = true;
 				else if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==2)&&
-					(Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1))
+						(Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1))
 					retorno = true;
 				else retorno = false;
 			}
@@ -33,10 +33,10 @@ public class Caballo extends Trebejo {
 			if((Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==2)&&
 					(Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1))
 				retorno = true;
-				else if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==2)&&
+			else if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==2)&&
 					(Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1))
-					retorno = true;
-				else retorno = false;
+				retorno = true;
+			else retorno = false;
 		}
 		if(this.equals(trebejo)) retorno = false;
 		return retorno;

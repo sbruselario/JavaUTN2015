@@ -19,23 +19,34 @@ public class Rey extends Trebejo {
 
 
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
-		if(trebejo.getColor() == this.getColor()) {
-			return false;
-		}else{
-			//en todas las direcciones, de a una posición
-			if (Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 1 &&
-					this.getPosicion().getLetra() == posicion.getLetra()){
-				return true;
-			}else if (this.getPosicion().getNumero() == posicion.getNumero()  &&
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()) == 1){
-				return true;
-			}else if (Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 1 &&
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()) == 1){
-				return true;
-			}else{
-				return false;
+		boolean retorno = false;
+
+		if(trebejo!=null){
+			if(trebejo.getColor() != this.getColor()){
+				if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1) &&
+						(this.getPosicion().getLetra() == posicion.getLetra()))
+					retorno = true;
+				else if((Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1) &&
+						(this.getPosicion().getNumero() == posicion.getNumero()))
+					retorno = true;
+				else if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1) &&
+						(Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1))
+					retorno = true;
 			}
+			else{
+				if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1) &&
+						(this.getPosicion().getLetra() == posicion.getLetra()))
+					retorno = true;
+				else if((Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1) &&
+						(this.getPosicion().getNumero() == posicion.getNumero()))
+					retorno = true;
+				else if((Math.abs(this.getPosicion().getNumero() - posicion.getNumero())==1) &&
+						(Math.abs(this.getPosicion().getLetra() - posicion.getLetra())==1))
+					retorno = true;
+			}		
 		}
+		if(this.equals(trebejo)) retorno = false;
+		return retorno;
 	}
 
 }

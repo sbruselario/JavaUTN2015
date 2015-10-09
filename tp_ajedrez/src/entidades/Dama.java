@@ -20,14 +20,14 @@ public class Dama extends Trebejo {
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
 
 		boolean retorno = false;
-		
+
 		if(trebejo != null){
 			if(trebejo.getColor() != this.getColor()){
 				if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
+						Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
 					retorno = true;
 				else if((this.getPosicion().getNumero() == posicion.getNumero())||
-					(this.getPosicion().getLetra() == posicion.getLetra()))
+						(this.getPosicion().getLetra() == posicion.getLetra()))
 					retorno = true;
 				else retorno = false;
 			}
@@ -36,10 +36,10 @@ public class Dama extends Trebejo {
 			if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
 					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
 				retorno = true;
-				else if((this.getPosicion().getNumero() == posicion.getNumero())||
+			else if((this.getPosicion().getNumero() == posicion.getNumero())||
 					(this.getPosicion().getLetra() == posicion.getLetra()))
-					retorno = true;
-				else retorno = false;			
+				retorno = true;
+			else retorno = false;			
 		}
 		if(this.equals(trebejo)) retorno = false;
 		return retorno;		

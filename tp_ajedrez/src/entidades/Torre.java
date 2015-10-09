@@ -17,12 +17,17 @@ public class Torre extends Trebejo {
 	}
 
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
-		if(trebejo.getColor() == this.getColor()) {
-			return false;
-		}else{
-			//cuando el número o la letra coinciden 
-			return ((this.getPosicion().getNumero() == posicion.getNumero()) ||
+		boolean retorno = false;
+
+		if(trebejo!=null){
+			if(trebejo.getColor() != this.getColor())
+				retorno=((this.getPosicion().getNumero() == posicion.getNumero())||(this.getPosicion().getLetra() == posicion.getLetra()));
+		}
+		else{
+			retorno=((this.getPosicion().getNumero() == posicion.getNumero())||
 					(this.getPosicion().getLetra() == posicion.getLetra()));
 		}
+		if(this.equals(trebejo)) retorno = false;
+		return retorno;
 	}
 }
