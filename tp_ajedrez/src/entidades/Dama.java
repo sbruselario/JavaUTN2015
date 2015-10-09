@@ -19,26 +19,30 @@ public class Dama extends Trebejo {
 
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
 
-		if(trebejo.getColor() == this.getColor()) {
-			return false;
-		}else{
-			//horizontal
-			if(this.getPosicion().getNumero() == posicion.getNumero()){
-				return true;
-
-				//vertical
-			}else if(this.getPosicion().getLetra() == posicion.getLetra()){
-				return true;
-
-				//diagonal
-			}else if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra())){
-				return true;
-
-			}else{ 
-				return false;
+		boolean retorno = false;
+		
+		if(trebejo != null){
+			if(trebejo.getColor() != this.getColor()){
+				if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
+					retorno = true;
+				else if((this.getPosicion().getNumero() == posicion.getNumero())||
+					(this.getPosicion().getLetra() == posicion.getLetra()))
+					retorno = true;
+				else retorno = false;
 			}
-		}	
+		}
+		else{
+			if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
+				retorno = true;
+				else if((this.getPosicion().getNumero() == posicion.getNumero())||
+					(this.getPosicion().getLetra() == posicion.getLetra()))
+					retorno = true;
+				else retorno = false;			
+		}
+		if(this.equals(trebejo)) retorno = false;
+		return retorno;		
 	}
 
 }

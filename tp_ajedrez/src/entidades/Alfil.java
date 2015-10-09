@@ -18,13 +18,19 @@ public class Alfil extends Trebejo {
 
 
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
-		if(trebejo.getColor() == this.getColor()) {
-			return false;
-		}else{
-			//diagonal
-			return (Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
+		boolean retorno = false;
+		if(trebejo != null){
+			if(trebejo.getColor() != (this.getColor()) ){
+				retorno=(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
 					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()));
+			}
 		}
+		else{
+			retorno=(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()));;
+		}
+		if(this.equals(trebejo)) retorno = false;
+		return retorno;
 	}
 
 }

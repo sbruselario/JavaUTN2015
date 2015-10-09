@@ -18,26 +18,30 @@ public class Peon extends Trebejo {
 
 	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
 
-		//veo si es del mismo color
-		if(trebejo.getColor() == this.getColor()) {
-			return false;
-
-			//adelanta una posición si no hay trebejo adelante
-		}else if (this.getPosicion().getLetra() == posicion.getLetra() && 
-				Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 1 &&
-				trebejo == null){
-			return true;
-
-			//come trebejo 
-		}else if (this.getColor() != trebejo.getColor() &&
-				Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 1 &&
-				Math.abs(this.getPosicion().getLetra() - posicion.getLetra()) == 1){
-			return true;
-
-			//false
-		}else{
-			return false;
+		boolean retorno = false;
+		
+		if(trebejo != null){ 							
+			if(trebejo.getColor() != this.getColor()){ 	
+				if((this.getColor() == 'b') && (trebejo.getColor() == 'n')){
+					if((Math.abs(this.getPosicion().getLetra()-posicion.getLetra())==1)&&(this.getPosicion().getNumero() - posicion.getNumero() == (-1)))
+						retorno=true;
+				}
+				if((this.getColor() == 'n')&&(trebejo.getColor() == 'b')){
+					if((Math.abs(this.getPosicion().getLetra()-posicion.getLetra())==1)&&(this.getPosicion().getNumero() - posicion.getNumero() ==(1)))
+						retorno = true;
+				}
+			}
 		}
+		else{
+			if(this.getPosicion().getLetra()==posicion.getLetra()){
+				if((this.getColor() == 'b')&&(this.getPosicion().getNumero() - posicion.getNumero() == -1))
+					retorno = true;
+				if((this.getColor() == 'n')&&(this.getPosicion().getNumero() - posicion.getNumero() == 1))
+					retorno = true;
+			}
+		}
+		if(this.equals(trebejo)) retorno = false;
+		return retorno;
 	}
 }
 
