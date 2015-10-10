@@ -17,7 +17,7 @@ public abstract class Trebejo {
 
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 

@@ -1,12 +1,14 @@
 package datos;
 
 import entidades.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DBpartidas {
 
 	//int idpartida  string dnij1  string dnij2 char color1  char color2
+	//falta corregir algunas cosas
 
 	public static Trebejo[] getTrebejos(int idpartida){
 		Trebejo[] trebejos= new Trebejo[32];
@@ -199,9 +201,6 @@ public class DBpartidas {
 		FactoryConexion.getInstancia().releaseConexion();
 		return p;
 	}
-
-
-
 
 
 
