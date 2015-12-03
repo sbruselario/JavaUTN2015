@@ -9,7 +9,7 @@ public class FactoryConexion {
 
 	//configuración para la conexión
 	String dbDriver="com.mysql.jdbc.Driver";
-	String host="192.168.1.3";
+	String host="localhost";
 	String port="3306";
 	String user="javaapp";
 	String pass="javaapp";
