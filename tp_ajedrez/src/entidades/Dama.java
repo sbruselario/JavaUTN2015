@@ -1,48 +1,38 @@
 package entidades;
 
+import entidades.Trebejo;
+import entidades.Posicion;
+
 public class Dama extends Trebejo {
 
-	private static char nombre = 'd';
-
-	public Dama(String id, char color, Posicion posicion, boolean eliminado) {
-		super( id,  color,  posicion,  eliminado);
+	public Dama(){
+		setNombre('d');
 	}
-
-	public static char getNombre() {
-		return nombre;
-	}
-
-	public static void setNombre(char nombre) {
-		Dama.nombre = nombre;
-	}
-
-
-	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
-
-		boolean retorno = false;
-
-		if(trebejo != null){
-			if(trebejo.getColor() != this.getColor()){
-				if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-						Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
-					retorno = true;
-				else if((this.getPosicion().getNumero() == posicion.getNumero())||
-						(this.getPosicion().getLetra() == posicion.getLetra()))
-					retorno = true;
-				else retorno = false;
+	
+	public boolean isMovimientoValido (Posicion p, Trebejo trebejop){
+		boolean resp = false;	
+		if(trebejop != null){
+			if(trebejop.getColor().equals(this.getColor())==false){
+				if(Math.abs(this.getPosicion().getNumero() - p.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - p.getLetra()))
+					resp = true;
+				else if((this.getPosicion().getNumero() == p.getNumero())||
+					(this.getPosicion().getLetra() == p.getLetra()))
+					resp = true;
+				else resp = false;
 			}
 		}
 		else{
-			if(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()))
-				retorno = true;
-			else if((this.getPosicion().getNumero() == posicion.getNumero())||
-					(this.getPosicion().getLetra() == posicion.getLetra()))
-				retorno = true;
-			else retorno = false;			
+			if(Math.abs(this.getPosicion().getNumero() - p.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - p.getLetra()))
+					resp = true;
+				else if((this.getPosicion().getNumero() == p.getNumero())||
+					(this.getPosicion().getLetra() == p.getLetra()))
+					resp = true;
+				else resp = false;			
 		}
-		if(this.equals(trebejo)) retorno = false;
-		return retorno;		
+		if(this.equals(trebejop)) resp = false;
+		return resp;		
 	}
 
 }

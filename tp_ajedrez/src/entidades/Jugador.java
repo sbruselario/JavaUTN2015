@@ -1,14 +1,16 @@
 package entidades;
 
 public class Jugador {
-	private String dni;
+
+	private int dni;
 	private String nombre;
 	private String apellido;
 
-	public String getDni() {
+
+	public int getDni() {
 		return dni;
 	}
-	public void setDni(String dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 	public String getNombre() {
@@ -22,12 +24,6 @@ public class Jugador {
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
-	}
-
-	public Jugador(String dni, String nombre, String apellido) {
-		this.setDni(dni);
-		this.setNombre(nombre);
-		this.setApellido(apellido);
 	}
 
 

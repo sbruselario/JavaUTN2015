@@ -44,6 +44,7 @@ public class DBjugadores {
 			e.printStackTrace();
 		}
 		FactoryConexion.getInstancia().releaseConexion();
+		
 	}
 
 

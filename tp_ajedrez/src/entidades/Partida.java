@@ -1,25 +1,28 @@
 package entidades;
 
+import entidades.Jugador;
+import entidades.Trebejo;
+import entidades.Posicion;
 import datos.DBpartidas;
 
 public class Partida {
 
-	private Trebejo[] piezas= new Trebejo[32];
+	private Trebejo[] Trebejos= new Trebejo[32];
 	private int idPartida;
 	private Jugador j1;
 	private Jugador j2;
 	private char turno;
 
 	public void iniciarPartida(){
-		piezas = DBpartidas.getTrebejos();
+		Trebejos = DBpartidas.getTrebejos();
 	}
 
-	public Trebejo[] getPiezas() {
-		return piezas;
+	public Trebejo[] getTrebejos() {
+		return Trebejos;
 	}
 
-	public void setPiezas(Trebejo[] piezas) {
-		this.piezas = piezas;
+	public void setTrebejos(Trebejo[] Trebejos) {
+		this.Trebejos = Trebejos;
 	}
 
 	public int getIdPartida() {
@@ -54,46 +57,47 @@ public class Partida {
 		this.turno = turno;
 	}
 
-	public Trebejo buscarPiezaEn(Posicion p) {
-		Trebejo piezaenp = null;
-		for (Trebejo pieza : piezas) {
-			if(pieza.getPosicion().equals(p)){
-				piezaenp=pieza;
-			}
+	public void acomodarTrebejos() {
+		for (Trebejo Trebejo : Trebejos) {
+			Trebejo.setPosicion(DBpartidas.getPosicion(Trebejo.getidTrebejo(), idPartida));
 		}
-		return piezaenp;
+
+	}
+	public void acomodarTrebejosPosicionInicial(){
+		for (Trebejo Trebejo : Trebejos) {
+			Trebejo.setPosicion(DBpartidas.getPosicion(Trebejo.getidTrebejo(), 0));
+		}
 	}
 
-	public Trebejo buscarPieza(int idPieza) {
-		Trebejo piezabuscada = null;
-		for (Trebejo pieza : piezas) {
-			if(pieza.getId() == idPieza){
-				piezabuscada = pieza;
+	public Trebejo buscarTrebejoEn(Posicion p) {
+		Trebejo Trebejop = null;
+		for (Trebejo Trebejo : Trebejos) {
+			if(Trebejo.getPosicion().equals(p)){
+				Trebejop = Trebejo;
+			}
+		}
+		return Trebejop;
+	}
+
+	public Trebejo buscarTrebejo(int idTrebejo) {
+		Trebejo Trebejobuscado = null;
+		for (Trebejo Trebejo : Trebejos) {
+			if(Trebejo.getidTrebejo()==idTrebejo){
+				Trebejobuscado = Trebejo;
 				break;
 			}
 		}
-		return piezabuscada;
+		return Trebejobuscado;
 	}
 
-	public void updatePieza(Trebejo pi) {
-		for (Trebejo pieza : piezas) {
-			if(pi.getId()==pieza.getId()){
-				pieza = pi;
+	public void updateTrebejo(Trebejo t) {
+		for (Trebejo Trebejo : Trebejos) {
+			if(t.getidTrebejo()==Trebejo.getidTrebejo()){
+				Trebejo = t;
 				break;
 			}
 		}
 
-	}
-	public void acomodarPiezas() {
-		for (Trebejo pieza : piezas) {
-			pieza.setPosicion(DBpartidas.getPosicion(pieza.getId(), idPartida));
-		}
-
-	}
-	public void acomodarPiezasPosicionInicial(){
-		for (Trebejo pieza : piezas) {
-			pieza.setPosicion(DBpartidas.getPosicion(pieza.getId(), 0));
-		}
 	}
 
 

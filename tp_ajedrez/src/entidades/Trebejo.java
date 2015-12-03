@@ -1,58 +1,49 @@
 package entidades;
 
+import entidades.Posicion;
+
 public abstract class Trebejo {
 
-	private String id;
-	private char color;
-	private Posicion posicion; 
-	private boolean eliminado;
+	private int idTrebejo;
+	private String color = "0";
+	private Posicion posicion;
+	private boolean estado = true;
+	private char nombre;
 
-	public Trebejo(String id, char color, Posicion posicion, boolean eliminado) {
-		this.setId(id); 
-		this.setColor(color);
-		this.setPosicion(posicion);
-		this.setEliminado(eliminado);
+	public int getidTrebejo() {
+		return idTrebejo;
 	}
-
-
-
-
-	public int getId() {
-		return id;
+	public void setidTrebejo(int idTrebejo) {
+		this.idTrebejo = idTrebejo;
 	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public char getColor() {
+	public String getColor() {
 		return color;
 	}
-
-	public void setColor(char color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
-
 	public Posicion getPosicion() {
 		return posicion;
 	}
-
 	public void setPosicion(Posicion posicion) {
 		this.posicion = posicion;
 	}
-
-	public boolean isEliminado() {
-		return eliminado;
+	public boolean isEstado() {
+		return estado;
 	}
-
-	public void setEliminado(boolean eliminado) {
-		this.eliminado = eliminado;
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
+	public abstract boolean isMovimientoValido(Posicion p, Trebejo trebejop);
 
-	public abstract boolean movimientoValido(Posicion destino, Trebejo pieza);
-
-	public void mover(Posicion pos){
-		this.posicion = pos;
+	public char getNombre(){
+		return nombre;
+	}
+	public void moverA(Posicion p){
+		this.posicion= p;
+	}
+	public void setNombre(char nombre) {
+		this.nombre = nombre;
 	}
 
 

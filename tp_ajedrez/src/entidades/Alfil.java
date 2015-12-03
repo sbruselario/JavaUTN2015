@@ -1,36 +1,28 @@
 package entidades;
 
+import entidades.Trebejo;
+import entidades.Posicion;
+
 public class Alfil extends Trebejo {
 
-	private static char nombre = 'a';
-
-	public Alfil(String id, char color, Posicion posicion, boolean eliminado) {
-		super( id,  color,  posicion,  eliminado);
+	public Alfil(){
+		setNombre('a');
 	}
-
-	public static char getNombre() {
-		return nombre;
-	}
-
-	public static void setNombre(char nombre) {
-		Alfil.nombre = nombre;
-	}
-
-
-	public boolean movimientoValido (Posicion posicion, Trebejo trebejo){
-		boolean retorno = false;
-		if(trebejo != null){
-			if(trebejo.getColor() != (this.getColor()) ){
-				retorno=(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-						Math.abs(this.getPosicion().getLetra() - posicion.getLetra()));
+	
+	public boolean isMovimientoValido (Posicion p, Trebejo trebejop){
+		boolean resp=false;
+		if(trebejop != null){
+			if(trebejop.getColor().equals(this.getColor())==false){
+				resp=(Math.abs(this.getPosicion().getNumero() - p.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - p.getLetra()));
 			}
 		}
 		else{
-			retorno=(Math.abs(this.getPosicion().getNumero() - posicion.getNumero()) == 
-					Math.abs(this.getPosicion().getLetra() - posicion.getLetra()));;
+			resp=(Math.abs(this.getPosicion().getNumero() - p.getNumero()) == 
+					Math.abs(this.getPosicion().getLetra() - p.getLetra()));;
 		}
-		if(this.equals(trebejo)) retorno = false;
-		return retorno;
+		if(this.equals(trebejop)) resp = false;
+		return resp;
 	}
 
 }
